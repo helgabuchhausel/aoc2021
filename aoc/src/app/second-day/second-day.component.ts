@@ -71,6 +71,27 @@ export class SecondDayComponent implements OnInit {
 
   onClick2(){
     this.solution2 = 0;
+    let horizontal = 0;
+    let depth = 0;
+    let aim = 0;
+
+    this.split();
+
+    this.instructions.forEach(e => {
+      const temp : number = parseInt(e.split(' ')[1], 10);
+      if (e.match('forward ')) {
+        horizontal += temp;
+        depth = depth + (aim * temp);
+      }
+      if (e.match('up ')) {
+        aim -= temp;
+      }
+      if (e.match('down ')) {
+        aim += temp;
+      }
+    });
+
+    this.solution2 = depth*horizontal;
 
     this.presentToast(this.solution2);
   }

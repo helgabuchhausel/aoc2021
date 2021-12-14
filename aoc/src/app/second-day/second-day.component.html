@@ -18,21 +18,27 @@
       you're on a submarine, down and up affect your depth, and so they have the
       opposite result of what you might expect. The submarine seems to already
       have a planned course (your puzzle input). You should probably figure out
-      where it's going. Calculate the horizontal position and depth
-      you would have after following the planned course
+      where it's going. Calculate the horizontal position and depth you would
+      have after following the planned course
 
-    <br>
-    <br>
-    What do you get if you multiply your final horizontal position by your final
-    depth?
-    <br />
-    <ion-button color="success" (click)="onClick1()"> Show </ion-button>
+      <br />
+      <br />
+      What do you get if you multiply your final horizontal position by your
+      final depth?
+      <br />
+      <ion-button color="success" (click)="onClick1()"> Show </ion-button>
 
-    <br />
-    <br />
-    question2
-    <br />
-    <ion-button color="success" (click)="onClick2()"> Show </ion-button>
-  </ion-card-content>
+      <br />
+      <br />
+      In addition to horizontal position and depth, you'll also need to track a
+      third value, aim. The commands also mean something entirely different than
+      you first thought: down X increases your aim by X units. up X decreases
+      your aim by X units. forward X does two things: It increases your
+      horizontal position by X units. It increases your depth by your aim
+      multiplied by X. What do you get if you multiply your final horizontal
+      position by your final depth?
+      <br />
+      <ion-button color="success" (click)="onClick2()"> Show </ion-button>
+    </ion-card-content>
   </ion-card>
 </ion-content>
