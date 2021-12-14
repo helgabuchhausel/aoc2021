@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { File } from '@awesome-cordova-plugins/file';
 import { Observable } from 'rxjs';
 import 'rxjs';
 import { map } from 'rxjs/operators';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-firstday',
@@ -18,7 +19,11 @@ export class FirstdayComponent implements OnInit {
   solution1: number;
   solution2: number;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    public toastController: ToastController,
+    private router: Router
+  ) {
     // get input
     http
       .get(this.url, { responseType: 'text' })
@@ -29,6 +34,11 @@ export class FirstdayComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  back()
+  {
+    this.router.navigate([ '/' ]);
+  }
 
   onClick1(): void {
     this.split();
@@ -49,30 +59,43 @@ export class FirstdayComponent implements OnInit {
         prevNumber = currentNumber;
       }
     }
+
+    this.presentToast(this.solution1);
   }
 
   onClick2(): void {
     this.split();
-    let firstGroup ;
+    let firstGroup;
     let secondGroup;
     this.solution2 = 0;
 
     for (let i = 0; i < this.numbers.length - 3; i++) {
-
-      if (firstGroup === 0){
-        firstGroup =this.numbers[i] + this.numbers[i + 1] + this.numbers[i + 2];
-        secondGroup = this.numbers[i+ 1] + this.numbers[i + 2] + this.numbers[i + 3];
-      }
-      else {
-        secondGroup = this.numbers[i] + this.numbers[i + 1] + this.numbers[i + 2];
+      if (firstGroup === 0) {
+        firstGroup =
+          this.numbers[i] + this.numbers[i + 1] + this.numbers[i + 2];
+        secondGroup =
+          this.numbers[i + 1] + this.numbers[i + 2] + this.numbers[i + 3];
+      } else {
+        secondGroup =
+          this.numbers[i] + this.numbers[i + 1] + this.numbers[i + 2];
       }
 
       if (firstGroup < secondGroup && firstGroup != secondGroup) {
-          this.solution2++;
+        this.solution2++;
       }
 
       firstGroup = secondGroup;
     }
+
+    this.presentToast(this.solution2);
+  }
+
+  async presentToast(msg: any) {
+    const toast = await this.toastController.create({
+      message: msg.toString(),
+      duration: 2000,
+    });
+    toast.present();
   }
 
   split() {

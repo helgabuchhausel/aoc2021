@@ -1,43 +1,44 @@
-<ion-card>
+<ion-header>
+  <ion-toolbar [translucent]="true">
+    <ion-title>Sonar Sweep</ion-title>
 
-  <ion-card-header>
-    <ion-card-subtitle>
-    </ion-card-subtitle>
-    <ion-card-title>Sonar Sweep</ion-card-title>
-  </ion-card-header>
+    <ion-buttons slot="start" (click)="back()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-card-content>
-    You're minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!
+<ion-content>
+  <ion-card>
+    <ion-card-header> </ion-card-header>
 
-    Before you know it, you're inside a submarine the Elves keep ready for situations like this. It's covered in Christmas lights (because of course it is), and it even has an experimental antenna that should be able to track the keys if you can boost its signal strength high enough;
+    <ion-card-content>
+      You're minding your own business on a ship at sea when the overboard alarm
+      goes off! You rush to see if you can help. Apparently, one of the Elves
+      tripped and accidentally sent the sleigh keys flying into the ocean!
+      Before you know it, you're inside a submarine the Elves keep ready for
+      situations like this. It's covered in Christmas lights (because of course
+      it is), and it even has an experimental antenna that should be able to
+      track the keys if you can boost its signal strength high enough; As the
+      submarine drops below the surface of the ocean, it automatically performs
+      a sonar sweep of the nearby sea floor. On a small screen, the sonar sweep
+      report (your puzzle input) appears: each line is a measurement of the sea
+      floor depth as the sweep looks further and further away from the
+      submarine.
 
-    As the submarine drops below the surface of the ocean, it automatically performs a sonar sweep of the nearby sea floor. On a small screen, the sonar sweep report (your puzzle input) appears: each line is a measurement of the sea floor depth as the sweep looks further and further away from the submarine.
+      <br />
+      <br />
+      How many measurements are larger than the previous measurement?
+      <br />
 
-    <br>
-    <br>
-    How many measurements are larger than the previous measurement?
-    <br>
+      <ion-button color="success" (click)="onClick1()"> Show me </ion-button>
 
-    <ion-button (click)="onClick1()">
-      Show me
-    </ion-button>
-    <div>
-      {{solution1}}
-    </div>
-
-    <br>
-    <br>
-    Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
-    <br>
-    <ion-button (click)="onClick2()">
-      Show me
-    </ion-button>
-    <div>
-      {{solution2}}
-    </div>
-</ion-card-content>
-
-
-</ion-card>
-
-
+      <br />
+      <br />
+      Consider sums of a three-measurement sliding window. How many sums are
+      larger than the previous sum?
+      <br />
+      <ion-button color="success" (click)="onClick2()"> Show me </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FirstdayComponent } from './firstday/firstday.component';
+import { SecondDayComponent } from './second-day/second-day.component';
+import { ThirdDayComponent } from './third-day/third-day.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,16 @@ const routes: Routes = [
   {
     path: 'first',
     component: FirstdayComponent
+  }
+  ,
+  {
+    path: 'second',
+    component: SecondDayComponent
+  }
+  ,
+  {
+    path: 'third',
+    component: ThirdDayComponent
   }
 ];
 
