@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./firstday.component.scss'],
 })
 export class FirstdayComponent implements OnInit {
-  text: Observable<string>;
+
   numbers: number[];
   data: string;
   url = './assets/input1.txt';
@@ -24,7 +24,6 @@ export class FirstdayComponent implements OnInit {
     public toastController: ToastController,
     private router: Router
   ) {
-    // get input
     http
       .get(this.url, { responseType: 'text' })
       .toPromise()
