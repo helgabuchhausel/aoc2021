@@ -7,11 +7,11 @@ import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-firstday',
-  templateUrl: './firstday.component.html',
-  styleUrls: ['./firstday.component.scss'],
+  selector: 'app-first-day',
+  templateUrl: './first-day.component.html',
+  styleUrls: ['./first-day.component.scss'],
 })
-export class FirstdayComponent implements OnInit {
+export class FirstDayComponent implements OnInit {
 
   numbers: number[];
   data: string;

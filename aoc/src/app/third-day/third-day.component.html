@@ -1,7 +1,45 @@
 <ion-header>
   <ion-toolbar [translucent]="true">
-    <ion-title> </ion-title>
+    <ion-title>Binary Diagnostic</ion-title>
+
+    <ion-buttons slot="start" (click)="back()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-card>
+    <ion-card-header> </ion-card-header>
+
+    <ion-card-content>
+      The submarine has been making some odd creaking noises, so you ask it to
+      produce a diagnostic report just in case. The diagnostic report (your
+      puzzle input) consists of a list of binary numbers which, when decoded
+      properly, can tell you many useful things about the conditions of the
+      submarine. The first parameter to check is the power consumption. You need
+      to use the binary numbers in the diagnostic report to generate two new
+      binary numbers (called the gamma rate and the epsilon rate). The power
+      consumption can then be found by multiplying the gamma rate by the epsilon
+      rate. Each bit in the gamma rate can be determined by finding the most
+      common bit in the corresponding position of all numbers in the diagnostic
+      report.
+
+      <br />
+      <br />
+      Use the binary numbers in your diagnostic report to calculate the gamma
+      rate and epsilon rate, then multiply them together. What is the power
+      consumption of the submarine? (Be sure to represent your answer in
+      decimal, not binary.)
+      <br />
+
+      <ion-button color="success" (click)="onClick1()"> Show </ion-button>
+
+      <br />
+      <br />
+      x
+      <br />
+      <ion-button color="success" (click)="onClick2()"> Show </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

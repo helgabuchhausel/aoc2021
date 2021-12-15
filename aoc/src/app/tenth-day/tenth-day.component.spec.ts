@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FirstdayComponent } from './firstday.component';
+import { TenthDayComponent } from './tenth-day.component';
 
-describe('FirstdayComponent', () => {
-  let component: FirstdayComponent;
-  let fixture: ComponentFixture<FirstdayComponent>;
+describe('TenthDayComponent', () => {
+  let component: TenthDayComponent;
+  let fixture: ComponentFixture<TenthDayComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstdayComponent ],
+      declarations: [ TenthDayComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FirstdayComponent);
+    fixture = TestBed.createComponent(TenthDayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

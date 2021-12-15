@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { FirstdayComponent } from './firstday/firstday.component';
+import { FirstDayComponent } from './first-day/first-day.component';
 import { SecondDayComponent } from './second-day/second-day.component';
 import { ThirdDayComponent } from './third-day/third-day.component';
+import { FourthDayComponent } from './fourth-day/fourth-day.component';
+import { FifthDayComponent } from './fifth-day/fifth-day.component';
+import { SixthDayComponent } from './sixth-day/sixth-day.component';
+import { SeventhDayComponent } from './seventh-day/seventh-day.component';
+import { EightthDayComponent } from './eightth-day/eightth-day.component';
+import { NinthDayComponent } from './ninth-day/ninth-day.component';
+import { TenthDayComponent } from './tenth-day/tenth-day.component';
+
 
 const routes: Routes = [
   {
@@ -16,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'first',
-    component: FirstdayComponent
+    component: FirstDayComponent
   }
   ,
   {
@@ -27,6 +35,14 @@ const routes: Routes = [
   {
     path: 'third',
     component: ThirdDayComponent
+  },
+  {
+    path: 'fourth',
+    component: FourthDayComponent
+  },
+  {
+    path: 'fifth',
+    component: FifthDayComponent
   }
 ];
 
