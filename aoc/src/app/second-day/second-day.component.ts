@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FileService } from '../service/file.service';
 
 @Component({
   selector: 'app-second-day',
@@ -17,7 +18,7 @@ export class SecondDayComponent implements OnInit {
   solution2: number;
 
   constructor( private http: HttpClient, public toastController: ToastController,
-    private router: Router) {
+    private router: Router, private fileService: FileService) {
     http
     .get(this.url, { responseType: 'text' })
     .toPromise()
@@ -41,16 +42,12 @@ export class SecondDayComponent implements OnInit {
     toast.present();
   }
 
-  split() {
-    this.instructions = this.data.split('\r\n');
-  }
 
   onClick1(){
     this.solution1 = 0;
     let horizontal = 0;
     let depth = 0;
-
-    this.split();
+    this.instructions =  this.fileService.split(this.data);
 
     this.instructions.forEach(e => {
       const temp : number = parseInt(e.split(' ')[1], 10);
@@ -75,7 +72,7 @@ export class SecondDayComponent implements OnInit {
     let depth = 0;
     let aim = 0;
 
-    this.split();
+    this.instructions =  this.fileService.split(this.data);
 
     this.instructions.forEach(e => {
       const temp : number = parseInt(e.split(' ')[1], 10);

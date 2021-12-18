@@ -5,6 +5,7 @@ import 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FileService } from '../service/file.service';
 
 @Component({
   selector: 'app-first-day',
@@ -22,7 +23,8 @@ export class FirstDayComponent implements OnInit {
   constructor(
     private http: HttpClient,
     public toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private fileService: FileService
   ) {
     http
       .get(this.url, { responseType: 'text' })
@@ -30,6 +32,8 @@ export class FirstDayComponent implements OnInit {
       .then((res) => {
         this.data = res;
       });
+
+
   }
 
   ngOnInit() {}
@@ -40,7 +44,7 @@ export class FirstDayComponent implements OnInit {
   }
 
   onClick1(): void {
-    this.split();
+    this.numbers =  this.fileService.split(this.data).map(Number);
 
     this.solution1 = 0;
     let prevNumber;
@@ -63,7 +67,7 @@ export class FirstDayComponent implements OnInit {
   }
 
   onClick2(): void {
-    this.split();
+    this.numbers =  this.fileService.split(this.data).map(Number);
     let firstGroup;
     let secondGroup;
     this.solution2 = 0;
@@ -97,7 +101,5 @@ export class FirstDayComponent implements OnInit {
     toast.present();
   }
 
-  split() {
-    this.numbers = this.data.split('\r\n').map(Number);
-  }
+
 }

@@ -1,8 +1,9 @@
-import { getLocaleMonthNames } from '@angular/common';
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FileService } from '../service/file.service';
 
 @Component({
   selector: 'app-third-day',
@@ -16,8 +17,10 @@ export class ThirdDayComponent implements OnInit {
   solution1: number;
   solution2: number;
 
+
   constructor(
     private http: HttpClient,
+    private fileService: FileService,
     public toastController: ToastController,
     private router: Router
   ) {
@@ -27,6 +30,7 @@ export class ThirdDayComponent implements OnInit {
       .then((res) => {
         this.data = res;
       });
+
   }
 
   ngOnInit() {}
@@ -35,9 +39,6 @@ export class ThirdDayComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  split() {
-    this.bits = this.data.split('\r\n');
-  }
 
   async presentToast(msg: any) {
     const toast = await this.toastController.create({
@@ -50,7 +51,7 @@ export class ThirdDayComponent implements OnInit {
   onClick1() {
     this.solution1 = 0;
 
-    this.split();
+    this.bits = this.fileService.split(this.data);
 
     let binaryGamma = '';
     let binaryEpsilon = '';
@@ -81,7 +82,6 @@ export class ThirdDayComponent implements OnInit {
     this.presentToast(this.solution1);
   }
 
-  onClick2() {
-    this.presentToast(this.solution2);
-  }
+  onClick2() {}
+
 }
